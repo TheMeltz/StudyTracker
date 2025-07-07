@@ -1,0 +1,6 @@
+# Format:
+# <type>(optional scope): <message>
+#
+# Types: feat, fix, docs, refactor, style, chore, test, ci
+# Example:
+# feat(cli): add REPL suggestion engine

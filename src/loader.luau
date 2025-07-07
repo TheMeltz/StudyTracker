@@ -1,7 +1,6 @@
 --!strict
-type Command = {
-	run: (...any?) -> (),
-}
+local Command = require("@types/Command")
+type Command = Command.Command
 
 local fs = require("@lune/fs")
 local stdio = require("@lune/stdio")
@@ -20,13 +19,21 @@ local function load_commands(): { [string]: Command }
 		if fs.isFile(COMMANDS_PATH .. "/" .. entry) then
 			local name = remove_ext(entry)
 			local success, module = pcall(function()
-				return require(`./commands/{name}`)
+				local module = require(`./commands/{name}`)
+
+				if name == "help" and typeof(module) == "function" then
+					return module(commands)
+				end
+
+				return module
 			end)
+
 			if success then
 				commands[name] = module
 			end
 		end
 	end
+
 	return commands
 end
 

@@ -1,7 +1,4 @@
-type Command = {
-	run: (...any?) -> (),
-}
-
+--!strict
 local levenshtein = require("./levenshtein")
 
 local function suggest_command(input: string, commands: { string }): string?
