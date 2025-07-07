@@ -1,0 +1,15 @@
+{
+  "languageMode": "strict",
+  "lint": {
+    "*": false,
+    "FormatString": true
+  },
+  "globals": [
+    "describe",
+    "it",
+    "expect"
+  ],
+  "aliases": {
+    "lune": "~/.lune/.typedefs/0.9.4/"
+  }
+}
