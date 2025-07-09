@@ -19,7 +19,7 @@ local function load_commands(): { [string]: Command }
 		if fs.isFile(COMMANDS_PATH .. "/" .. entry) then
 			local name = remove_ext(entry)
 			local success, module = pcall(function()
-				local module = require(`./commands/{name}`)
+				local module = require(`../commands/{name}`)
 
 				if name == "help" and typeof(module) == "function" then
 					return module(commands)
