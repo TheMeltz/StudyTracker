@@ -5,4 +5,4 @@ export type Command = {
 	run: (...any?) -> (),
 }
 
-return true
+return {} :: Command
